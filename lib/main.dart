@@ -30,81 +30,154 @@ class _MyHomePageState extends State<MyHomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     print(screenWidth);
-    var col = Colors.yellow;
+    var col = Color(0xffb15202b);
     return Scaffold(
       body: Container(
-        color: Colors.blueAccent,
+        color: col,
         height: screenHeight,
         width: screenWidth,
         child: Row(
           children: <Widget>[
-            screenWidth < 550
-                ? Container()
-                : Container(
-                    width: screenWidth * .20,
-                    height: screenHeight,
-                    child: Column(
+            Container(
+              width: screenWidth * .20,
+              height: screenHeight,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        FlatButton(
-                          hoverColor: Colors.white30,
-                          onPressed: () {},
-                          onHighlightChanged: (bool x) {},
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.teal,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'ccc',
-                                style: TextStyle(
-                                    color: Colors.red[200],
-                                    fontWeight: FontWeight.w800),
-                              ),
-                            ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.home,
+                            color: Colors.blue,
+                            size: 30,
                           ),
                         ),
-                        FlatButton(
-                          hoverColor: Colors.white30,
-                          onPressed: () {},
-                          onHighlightChanged: (bool x) {},
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.teal,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'ccc',
+                        screenWidth < 680
+                            ? Container()
+                            : Text(
+                                "Home",
                                 style: TextStyle(
-                                    color: Colors.red[200],
-                                    fontWeight: FontWeight.w800),
-                              ),
-                            ),
-                          ),
-                        ),
-                        FlatButton(
-                          hoverColor: Colors.white30,
-                          onPressed: () {},
-                          onHighlightChanged: (bool x) {},
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.teal,
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'ccc',
-                                style: TextStyle(
-                                    color: Colors.red[200],
-                                    fontWeight: FontWeight.w800),
-                              ),
-                            ),
-                          ),
-                        )
+                                    color: Colors.blue,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w900),
+                              )
                       ],
                     ),
                   ),
+                  Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: screenWidth > 700
+                          ? MainAxisAlignment.start
+                          : MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.explore,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                        ),
+                        screenWidth < 680
+                            ? Container()
+                            : Text(
+                                "Explore",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w900),
+                              )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Colors.blue,
+                        size: 30,
+                      ),
+                      title: screenWidth < 680
+                          ? Container()
+                          : Text(
+                              "Home",
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w900),
+                            ),
+                    ),
+                  ),
+                  FlatButton(
+                    hoverColor: Colors.white30,
+                    onPressed: () {},
+                    onHighlightChanged: (bool x) {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'ccc',
+                          style: TextStyle(
+                              color: Colors.red[200],
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                    ),
+                  ),
+                  FlatButton(
+                    hoverColor: Colors.white30,
+                    onPressed: () {},
+                    onHighlightChanged: (bool x) {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.teal,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'ccc',
+                          style: TextStyle(
+                              color: Colors.red[200],
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                    ),
+                  ),
+                  FlatButton(
+                    hoverColor: Colors.white30,
+                    onPressed: () {},
+                    onHighlightChanged: (bool x) {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.teal,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'ccc',
+                          style: TextStyle(
+                              color: Colors.red[200],
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
             Expanded(
               child: Container(
                 //width: screenWidth * .50,
@@ -117,9 +190,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: BoxDecoration(
                           color: Colors.transparent,
                           border: Border(
-                              bottom: BorderSide(color: Colors.grey),
-                              right: BorderSide(color: Colors.grey),
-                              left: BorderSide(color: Colors.grey))),
+                              bottom: BorderSide(color: Colors.grey[200]),
+                              right: BorderSide(color: Colors.grey[200]),
+                              left: BorderSide(color: Colors.grey[200]))),
                       width: double.infinity,
                       height: 70,
                       alignment: Alignment.center,
@@ -131,7 +204,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text(
                               "Home",
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                           Padding(
@@ -146,8 +221,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         decoration: BoxDecoration(
                             color: Colors.transparent,
                             border: Border(
-                                right: BorderSide(color: Colors.grey),
-                                left: BorderSide(color: Colors.grey))),
+                                right: BorderSide(color: Colors.grey[300]),
+                                left: BorderSide(color: Colors.grey[300]))),
                         child: ListView.builder(
                           //physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
