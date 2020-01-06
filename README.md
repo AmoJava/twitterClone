@@ -1,4 +1,4 @@
-# tweeter_app
+# twitter_app
 
 A new Flutter application.
 
