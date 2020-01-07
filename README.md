@@ -1,6 +1,6 @@
 # twitter_app
 
-A new Flutter application.
+A new Twitter Clone Made By Flutter Web .
 
 ## Getting Started
 
