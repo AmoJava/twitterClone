@@ -3,6 +3,9 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:tweeter_app/Explorer.dart';
+import 'package:tweeter_app/HomePage.dart';
+import 'package:tweeter_app/NotificationsPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,6 +30,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Widget middleSection;
+
+  @override
+  void initState() {
+    middleSection = HomePageMiddleSection();
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -50,34 +60,83 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   sectionRList(
                       screenWidth: screenWidth, txt: "", icon: Icons.toys),
-                  sectionRList(
-                      screenWidth: screenWidth, txt: "Home", icon: Icons.home),
-                  sectionRList(
-                      screenWidth: screenWidth,
-                      txt: "Explore",
-                      icon: Icons.explore),
-                  sectionRList(
-                      screenWidth: screenWidth,
-                      txt: "Notifications",
-                      icon: Icons.notifications),
-                  sectionRList(
-                      screenWidth: screenWidth,
-                      txt: "Messages",
-                      icon: Icons.message),
-                  sectionRList(
-                      screenWidth: screenWidth,
-                      txt: "BookMarks",
-                      icon: Icons.bookmark),
-                  sectionRList(
-                      screenWidth: screenWidth, txt: "List", icon: Icons.list),
-                  sectionRList(
-                      screenWidth: screenWidth,
-                      txt: "Profile",
-                      icon: Icons.account_circle),
-                  sectionRList(
-                      screenWidth: screenWidth,
-                      txt: "More",
-                      icon: Icons.more_horiz),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    onPressed: () {
+                      setState(() {
+                        middleSection = HomePageMiddleSection();
+                      });
+                    },
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "Home",
+                        icon: Icons.home),
+                  ),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    animationDuration: Duration(milliseconds: 1),
+                    onPressed: () {
+                      setState(() {
+                        middleSection = ExplorerMiddleSection();
+                      });
+                    },
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "Explore",
+                        icon: Icons.explore),
+                  ),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    onPressed: () {
+                      setState(() {
+                        middleSection = NotificationsMiddleSection();
+                      });
+                    },
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "Notifications",
+                        icon: Icons.notifications),
+                  ),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    onPressed: () {},
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "Messages",
+                        icon: Icons.message),
+                  ),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    onPressed: () {},
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "BookMarks",
+                        icon: Icons.bookmark),
+                  ),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    onPressed: () {},
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "List",
+                        icon: Icons.list),
+                  ),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    onPressed: () {},
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "Profile",
+                        icon: Icons.account_circle),
+                  ),
+                  MaterialButton(
+                    hoverColor: Colors.lightBlue.withAlpha(25),
+                    onPressed: () {},
+                    child: sectionRList(
+                        screenWidth: screenWidth,
+                        txt: "More",
+                        icon: Icons.more_horiz),
+                  ),
                 ],
               ),
             ),
@@ -85,150 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Container(
                 //width: screenWidth * .50,
                 color: Colors.transparent,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          border: Border(
-                              bottom: BorderSide(color: Colors.white12),
-                              right: BorderSide(color: Colors.white12),
-                              left: BorderSide(color: Colors.white12))),
-                      width: double.infinity,
-                      height: 70,
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(left: 18, right: 8),
-                            child: Text(
-                              "Home",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8, right: 8),
-                            child: Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                              size: 20,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            border: Border(
-                                right: BorderSide(color: Colors.white12),
-                                left: BorderSide(color: Colors.white12))),
-                        child: SingleChildScrollView(
-                          child: Container(
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  width: double.infinity,
-                                  child: Column(
-                                    children: <Widget>[
-                                      Row(
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: const EdgeInsets.all(12.0),
-                                            child: CircleAvatar(
-                                              radius: 25,
-                                              backgroundImage: NetworkImage(
-                                                  'https://pbs.twimg.com/profile_images/1207727571959504898/KujGkveH_bigger.jpg'),
-                                            ),
-                                          ),
-                                          Text(
-                                            "What's Happening .. ?",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w100,
-                                                color: Colors.white30,
-                                                fontSize: 18),
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      Row(
-                                        children: <Widget>[
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 72),
-                                            child: IconButton(
-                                                hoverColor: Colors.white30,
-                                                icon: Icon(
-                                                  Icons.image,
-                                                  color: Colors.lightBlue,
-                                                ),
-                                                onPressed: () {}),
-                                          ),
-                                          IconButton(
-                                              icon: Icon(
-                                                Icons.gif,
-                                                color: Colors.lightBlue,
-                                                size: 25,
-                                              ),
-                                              onPressed: () {}),
-                                          IconButton(
-                                              icon: Icon(
-                                                Icons.date_range,
-                                                color: Colors.lightBlue,
-                                                size: 25,
-                                              ),
-                                              onPressed: () {}),
-                                          IconButton(
-                                              icon: Icon(
-                                                Icons.face,
-                                                color: Colors.lightBlue,
-                                                size: 25,
-                                              ),
-                                              onPressed: () {}),
-                                        ],
-                                      ),
-                                      Divider(
-                                        color: Colors.white12,
-                                        thickness: 9,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                ListView.builder(
-                                  physics: NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: 106,
-                                  itemBuilder: (context, i) {
-                                    return Container(
-                                      height: 70,
-                                      decoration: BoxDecoration(
-                                          color: Colors.transparent,
-                                          border: Border(
-                                              bottom: BorderSide(
-                                                  color: Colors.white12))),
-                                      child: ListTile(
-                                        title: Text("$i"),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                child: middleSection,
               ),
             ),
             screenWidth < 800
