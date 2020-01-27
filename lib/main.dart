@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   sectionRList(
                       screenWidth: screenWidth, txt: "", icon: Icons.toys),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     onPressed: () {
                       setState(() {
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icons.home),
                   ),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     animationDuration: Duration(milliseconds: 1),
                     onPressed: () {
@@ -86,6 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icons.explore),
                   ),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     onPressed: () {
                       setState(() {
@@ -98,6 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icons.notifications),
                   ),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     onPressed: () {},
                     child: sectionRList(
@@ -106,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icons.message),
                   ),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     onPressed: () {},
                     child: sectionRList(
@@ -114,6 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icons.bookmark),
                   ),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     onPressed: () {},
                     child: sectionRList(
@@ -122,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icons.list),
                   ),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     onPressed: () {},
                     child: sectionRList(
@@ -130,6 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icons.account_circle),
                   ),
                   MaterialButton(
+                    splashColor: Colors.transparent,
                     hoverColor: Colors.lightBlue.withAlpha(25),
                     onPressed: () {},
                     child: sectionRList(
@@ -200,102 +208,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                       thickness: 1,
                                       color: Colors.white12,
                                     ),
-                                    Container(
-                                        width: double.infinity,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: <Widget>[
-                                                  Text(
-                                                    'Trending in Egypt',
-                                                    style: TextStyle(
-                                                        fontSize: 10,
-                                                        color: Colors.white30),
-                                                  ),
-                                                  Icon(
-                                                    CupertinoIcons.forward,
-                                                    color: Colors.white30,
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                            Container(
-                                              alignment: Alignment.centerRight,
-                                              child: Text(
-                                                ' محمد_محمد_أبوتريكــة #    ',
-                                                textDirection:
-                                                    TextDirection.rtl,
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Container(
-                                                width: double.infinity,
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  '103.6K Tweets',
-                                                  style: TextStyle(
-                                                      fontSize: 13,
-                                                      color: Colors.white30),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        )),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Text('gghh'),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Text('gghh'),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Text('gghh'),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Text('gghh'),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Text('gghh'),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Text('gghh'),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Text('gghh'),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.white12,
-                                    ),
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 10),
-                                      child: Text('gghh'),
-                                    ),
+                                    trend(
+                                        country: "Egypt",
+                                        number: 50,
+                                        trend: " # YallaYaAhly"),
+                                    trend(
+                                        country: "World Wide",
+                                        number: 100,
+                                        trend: " # FlutterCreate"),
+                                    trend(
+                                        country: "Egypt",
+                                        number: 50,
+                                        trend: " # Egypt2020"),
+                                    trend(
+                                        country: "Egypt",
+                                        number: 50,
+                                        trend: " # Yusuf"),
+                                    SizedBox(
+                                      height: 15,
+                                    )
                                   ],
                                 ),
                               ),
@@ -411,6 +342,58 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  Widget trend({String trend, String country, int number}) {
+    return Container(
+        width: double.infinity,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Trending in $country',
+                    style: TextStyle(fontSize: 10, color: Colors.white30),
+                  ),
+                  Icon(
+                    CupertinoIcons.forward,
+                    color: Colors.white30,
+                  )
+                ],
+              ),
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    ' $trend     ',
+                    textDirection: TextDirection.rtl,
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: double.infinity,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '$number K Tweets',
+                  style: TextStyle(fontSize: 13, color: Colors.white30),
+                ),
+              ),
+            ),
+            Divider(
+              thickness: 1,
+              color: Colors.white12,
+            ),
+          ],
+        ));
   }
 }
 
