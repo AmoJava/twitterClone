@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        backgroundColor: Color(0xffb15202b),
         primarySwatch: Colors.red,
       ),
       home: MyHomePage(),
@@ -46,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var col2 = Color(0xff21303d);
 
     return Scaffold(
+      backgroundColor: col,
       body: Container(
         color: col,
         height: screenHeight,
@@ -224,8 +226,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                         country: "Egypt",
                                         number: 50,
                                         trend: " # Yusuf"),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 8, top: 8, bottom: 8),
+                                      child: Container(
+                                        width: double.infinity,
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "Show More",
+                                          style: TextStyle(
+                                              color: Colors.lightBlue),
+                                        ),
+                                      ),
+                                    ),
                                     SizedBox(
-                                      height: 15,
+                                      height: 13,
                                     )
                                   ],
                                 ),
@@ -235,59 +250,61 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 13,
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 10),
+                              padding: const EdgeInsets.only(
+                                  left: 10, right: 10, bottom: 20),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                    color: Colors.white10,
+                                    color: col2,
                                     borderRadius: BorderRadius.circular(20)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                      Divider(),
-                                      Text('gghh'),
-                                    ],
-                                  ),
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                      width: double.infinity,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 12, top: 4, bottom: 3),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Text(
+                                              'Who to Follow',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w900),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Divider(
+                                      thickness: 1,
+                                      color: Colors.white12,
+                                    ),
+                                    WhoToFollow(),
+                                    WhoToFollow(),
+                                    WhoToFollow(),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 8, top: 8, bottom: 8),
+                                      child: Container(
+                                        width: double.infinity,
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "Show More",
+                                          style: TextStyle(
+                                              color: Colors.lightBlue),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 13,
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
                             ),
                           ],
                         ),
@@ -356,11 +373,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Text(
                     'Trending in $country',
-                    style: TextStyle(fontSize: 10, color: Colors.white30),
+                    style: TextStyle(fontSize: 10, color: Colors.grey[500]),
                   ),
                   Icon(
                     CupertinoIcons.forward,
-                    color: Colors.white30,
+                    color: Colors.grey[500],
                   )
                 ],
               ),
@@ -384,7 +401,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   '$number K Tweets',
-                  style: TextStyle(fontSize: 13, color: Colors.white30),
+                  style: TextStyle(fontSize: 13, color: Colors.grey[500]),
                 ),
               ),
             ),
@@ -394,6 +411,68 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ));
+  }
+
+  Widget WhoToFollow() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 25,
+                  backgroundImage: NetworkImage(
+                      'https://pbs.twimg.com/profile_images/1207727571959504898/KujGkveH_bigger.jpg'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Ahmed Mohsin",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      "@ahmad_fadl9",
+                      style: TextStyle(fontSize: 13, color: Colors.grey[500]),
+                    ),
+                  ],
+                ),
+              ),
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 4, bottom: 4, left: 12, right: 12),
+                    child: Text(
+                      "Follow",
+                      style: TextStyle(
+                          color: Colors.lightBlue, fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.lightBlue),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                ),
+              )
+            ],
+          ),
+          Divider(
+            thickness: 1,
+            color: Colors.white12,
+          ),
+        ],
+      ),
+    );
   }
 }
 
